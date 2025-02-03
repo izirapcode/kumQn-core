@@ -1,4 +1,4 @@
-package auth.config;
+package kumka.auth.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -28,11 +28,10 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable) // Disable CSRF if using cookies for session
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/login", "/oauth2/**").permitAll()
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
                 .oauth2Login(oauth2 -> oauth2
-                        .defaultSuccessUrl(clientDomain + "/dashboard", true)
+                        .defaultSuccessUrl(clientDomain + "/google-auth", true)
                         .failureUrl("/login?error")
                 );
 

@@ -1,0 +1,18 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            redirect-uri: "https://api.kumka.zone/core/login/oauth2/code/google"
+            client-id: 609264871030-k3enjpaad70pj3i8knqmi9m33m680skp.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - email
+              - profile
+server:
+  forward-headers-strategy: framework
+
+
+client:
+  domain: https://kumka.zone
